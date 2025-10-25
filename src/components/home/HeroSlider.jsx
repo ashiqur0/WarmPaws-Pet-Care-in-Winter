@@ -1,11 +1,11 @@
 import React from 'react';
 
-const App = () => {
+const HeroSlider = () => {
     return (
         <div>
-            Hello
+            hero slider
         </div>
     );
 };
 
-export default App;
+export default HeroSlider;

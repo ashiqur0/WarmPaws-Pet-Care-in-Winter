@@ -1,11 +1,11 @@
 import React from 'react';
 
-const App = () => {
+const AuthLayout = () => {
     return (
         <div>
-            Hello
+            auth layout
         </div>
     );
 };
 
-export default App;
+export default AuthLayout;

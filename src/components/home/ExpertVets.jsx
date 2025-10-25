@@ -1,11 +1,11 @@
 import React from 'react';
 
-const App = () => {
+const ExpertVets = () => {
     return (
         <div>
-            Hello
+            expert vets
         </div>
     );
 };
 
-export default App;
+export default ExpertVets;

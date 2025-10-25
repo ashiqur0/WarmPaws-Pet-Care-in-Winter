@@ -1,11 +1,11 @@
 import React from 'react';
 
-const App = () => {
+const AuthContext = () => {
     return (
         <div>
-            Hello
+            auth context
         </div>
     );
 };
 
-export default App;
+export default AuthContext;

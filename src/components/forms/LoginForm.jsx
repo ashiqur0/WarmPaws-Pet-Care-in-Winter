@@ -1,11 +1,11 @@
 import React from 'react';
 
-const App = () => {
+const LoginForm = () => {
     return (
         <div>
-            Hello
+            login form
         </div>
     );
 };
 
-export default App;
+export default LoginForm;
