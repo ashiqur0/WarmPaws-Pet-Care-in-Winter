@@ -46,7 +46,7 @@ const router = createBrowserRouter([
                 Component: ServiceDetails
             },
             {
-                path: '/authlayout/profile',
+                path: '/authlayout/myprofile',
                 Component: MyProfile
             },
         ]
