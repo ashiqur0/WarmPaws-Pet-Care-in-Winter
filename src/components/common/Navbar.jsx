@@ -46,7 +46,7 @@ const Navbar = () => {
                     <FaGithub />
                     <a href='https://github.com/ashiqur0' target='_blank'>Contribute</a>
                 </button> */}
-                <div className='flex gap-5'>
+                <div className='md:flex hidden gap-5'>
                     {
                         user ? <Link to='/' className="btn bg-slate-900">Logout</Link> :
                             <>

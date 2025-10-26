@@ -39,16 +39,18 @@ const router = createBrowserRouter([
     },
     {
         path: '/authlayout',
-        Component: AuthLayout,
+        element: <AuthLayout>
+            <MyProfile></MyProfile>
+        </AuthLayout>,
         children: [
             {
                 path: '/authlayout/servicedetails',
                 Component: ServiceDetails
             },
-            {
-                path: '/authlayout/myprofile',
-                Component: MyProfile
-            },
+            // {
+            //     path: '/authlayout/myprofile',
+            //     Component: MyProfile
+            // },
         ]
     },
     {
