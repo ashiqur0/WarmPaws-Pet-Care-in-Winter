@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import logo from '/logo.png'
 import { IoCloseOutline } from 'react-icons/io5';
 import { CiMenuFries } from 'react-icons/ci';
-import { FaGithub } from 'react-icons/fa';
 
 const Navbar = () => {
     const links = <>
@@ -13,14 +12,17 @@ const Navbar = () => {
     </>
 
     const [open, setOpen] = useState(false);
-    const user = false;
+
+    // Dynamically Define korte hobe
+    const user = true;
+    const displayName = 'Ashiqur';
 
     return (
-        <section className='p-4 shadow-md shadow-gray-800 bg-slate-900 '>
+        <section className='p-4 shadow-md shadow-gray-800 bg-slate-950 '>
             <nav className='md:flex justify-between items-center max-w-7xl mx-auto'>
                 <div className='flex justify-between items-center cursor-pointer'>
 
-                    <Link to='/' className='flex items-center gap-1 md:gap-3'>
+                    <Link to='/' className='flex items-center gap-3 md:gap-3'>
                         <img className='w-7 lg:w-10' src={logo} alt="" />
                         <h1 className='font-inter font-xl lg:text-2xl font-bold bg-linear-to-r from-violet-700 to-purple-700 bg-clip-text text-transparent'>WarmPaws – Pet Care in Winter</h1>
                     </Link>
@@ -30,9 +32,19 @@ const Navbar = () => {
                         {open ? <IoCloseOutline /> : <CiMenuFries />}
                     </button>
 
-                    <ul className={`md:hidden flex flex-col absolute duration-1000 hover:shadow-sm py-1 rounded-sm bg-linear-to-r from-violet-700 to-purple-700 px-4 text-white text-md
-                        ${open ? 'top-16 right-6' : '-top-64 right-6'}
+                    <ul className={`w-full text-center md:hidden flex flex-col absolute duration-1000 hover:shadow-sm py-1 rounded-sm bg-linear-to-r from-violet-700 to-purple-700 px-4 text-white text-md
+                        ${open ? 'top-16 right-0' : '-top-64 right-0'}
                         `}>{links}
+                        {
+                            user ? <>
+                                <Link to='/'>Logout</Link>
+                            </>
+                                :
+                                <>
+                                    <Link to='/login'>Login</Link>
+                                    <Link to='/signup'>Signup</Link>
+                                </>
+                        }
                     </ul>
                 </div>
 
@@ -42,16 +54,18 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                {/* <button className='md:flex hidden items-center gap-2 px-4 py-2 text-white font-bold rounded-md cursor-pointer bg-linear-to-br from-violet-600 to-purple-500'>
-                    <FaGithub />
-                    <a href='https://github.com/ashiqur0' target='_blank'>Contribute</a>
-                </button> */}
-                <div className='md:flex hidden gap-5'>
+                <div className='md:flex hidden gap-3'>
                     {
-                        user ? <Link to='/' className="btn bg-slate-900">Logout</Link> :
+                        user ? <>
+                            <Link to='/' className="btn px-10 bg-slate-900">Logout</Link>
+                            <div className='w-10 bg-white p-1 rounded-full ml-3 cursor-pointer'>
+                                <img src="https://img.icons8.com/?size=100&id=42384&format=png&color=000000" title={displayName} />
+                            </div>
+                        </>
+                            :
                             <>
-                                <Link to='/login' className="btn bg-slate-900">Login</Link>
-                                <Link to='/signup' className="btn bg-slate-900">Signup</Link>
+                                <Link to='/login' className="btn px-10 bg-slate-900">Login</Link>
+                                <Link to='/signup' className="btn px-10 bg-slate-900">Signup</Link>
                             </>
                     }
                 </div>
