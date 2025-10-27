@@ -1,14 +1,6 @@
-import React, { useEffect, useState } from 'react';
+
 
 const WinterCareTips = () => {
-    const [tips, setTips] = useState([]);
-    useEffect(() => {
-        fetch('/data/winterCareTips.json')
-            .then(res => res.json())
-            .then(data => {
-                setTips(data);
-            })
-    }, []);
 
     return (
         <div className='my-10 md:w-7xl md:mx-auto mx-4'>

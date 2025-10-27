@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Sarah Thompson",
+    "expertise": "Veterinary Surgeon, Pet Nutrition Specialist",
+    "image": "https://i.postimg.cc/YCcj1KCs/pet-advice-hero-image-v2.webp"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Michael Carter",
+    "expertise": "Animal Behaviorist, Pet Training Consultant",
+    "image": "https://i.ibb.co.com/XrFP5vyN/veterinary-doctor-in-siliguri.png"
+  },
+  {
+    "id": 3,
+    "name": "Dr. Emma Rodriguez",
+    "expertise": "Exotic Animal Care, Preventive Medicine",
+    "image": "https://i.postimg.cc/BnR16Lrs/veterinarian-doctor-labrador-puppy-vet-260nw-402932857.webp"
+  },
+  {
+    "id": 4,
+    "name": "Dr. David Lee",
+    "expertise": "Pet Dermatology, Vaccination & Health Care",
+    "image": "https://i.postimg.cc/wvQt0W78/happy-dog-at-the-vet-0b600f67cb.webp"
+  }
+]

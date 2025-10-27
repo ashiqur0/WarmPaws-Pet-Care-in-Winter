@@ -4,6 +4,7 @@ import Carousel2 from '../components/Carousel2';
 import { useLoaderData } from 'react-router';
 import Services from './Services';
 import WinterCareTips from '../components/WinterCareTips';
+import MeetOutExpert from '../components/MeetOutExpert';
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <Carousel2 data={data}></Carousel2>
       <Services></Services>
       <WinterCareTips></WinterCareTips>
+      <MeetOutExpert></MeetOutExpert>
     </div>
   );
 };
