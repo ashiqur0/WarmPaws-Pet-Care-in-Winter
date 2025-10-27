@@ -6,7 +6,7 @@ import Footer from '../components/common/Footer';
 const MainLayout = () => {
 
     return (
-        <div className='h-[100vh] flex flex-col justify-between bg-slate-900'>
+        <div className='bg-slate-900'>
             <Navbar />
             <Outlet />
             <Footer />
