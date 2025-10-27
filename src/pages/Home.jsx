@@ -1,11 +1,12 @@
 import React from 'react';
+import HeroSliderCarousel from '../components/HeroSliderCarousel';
 
 const Home = () => {
-    return (
-        <div >
-            <h1>Home 1234</h1>
-        </div>
-    );
+  return (
+    <div>
+      <HeroSliderCarousel></HeroSliderCarousel>
+    </div>
+  );
 };
 
 export default Home;

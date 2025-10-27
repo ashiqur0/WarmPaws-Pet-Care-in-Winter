@@ -9,6 +9,7 @@ import NotFound from "../pages/NotFound";
 import ServiceDetails from "../pages/ServiceDetails";
 import ForgotPassword from "../pages/ForgotPassword";
 import AuthLayout from "../layouts/AuthLayout";
+import Loading from "../components/Loading";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +22,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                Component: Services
+                Component: Services,
+                loader: () => fetch('/data/services.json'),
+                hydrateFallbackElement: <Loading></Loading>
             },
             {
                 path: '/signup',

@@ -1,0 +1,74 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.postimg.cc/nrD3my8x/pet1.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.postimg.cc/cCnF3pqZ/pet2.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Pet Bed Rental",
+    "providerName": "WarmNest Pet Supplies",
+    "providerEmail": "support@warmnest.com",
+    "price": 18,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Rent a cozy, temperature-controlled bed to keep your pets warm through chilly nights.",
+    "image": "https://i.postimg.cc/3NvtGsMH/pet3.jpg",
+    "category": "Comfort"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Nutritional Winter Diet Plan",
+    "providerName": "HealthyTails Nutritionists",
+    "providerEmail": "contact@healthytails.com",
+    "price": 22,
+    "rating": 4.6,
+    "slotsAvailable": 6,
+    "description": "Personalized winter diet plans designed by expert vets to boost your pet’s immunity and energy.",
+    "image": "https://i.postimg.cc/d3y5CbMc/pet4.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Winter Walk Assistance & Pet Sitting",
+    "providerName": "SnowPaws Care",
+    "providerEmail": "service@snowpaws.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Reliable pet walkers and sitters available to ensure your pets stay active and safe during winter walks.",
+    "image": "https://i.postimg.cc/zvgxhsmJ/pet5.jpg",
+    "category": "Outdoor"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Vet Health Checkup",
+    "providerName": "FurWell Veterinary Clinic",
+    "providerEmail": "clinic@furwellvet.com",
+    "price": 40,
+    "rating": 5.0,
+    "slotsAvailable": 3,
+    "description": "Comprehensive winter health examination for pets including skin, paw, and coat care advice.",
+    "image": "https://i.postimg.cc/QCTf72Lj/pet6.jpg",
+    "category": "Medical"
+  }
+]

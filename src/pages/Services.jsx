@@ -1,9 +1,13 @@
 import React from 'react';
+import { useLoaderData } from 'react-router';
 
 const Services = () => {
+    const data = useLoaderData();
+    console.log(data);
+
     return (
         <div>
-            service
+            <div>gg</div>
         </div>
     );
 };
