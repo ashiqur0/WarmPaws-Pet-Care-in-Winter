@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Keep Them Warm Indoors",
+    "description": "Pets feel the cold too...",
+    "icon": "FaHome"
+  },
+  {
+    "id": 2,
+    "title": "Limit Outdoor Time",
+    "description": "Short walks are okay...",
+    "icon": "FaSnowflake"
+  },
+  {
+    "id": 3,
+    "title": "Protect Their Paws",
+    "description": "Snow, ice, and road salt can hurt...",
+    "icon": "FaPaw"
+  },
+  {
+    "id": 4,
+    "title": "Adjust Their Diet and Water",
+    "description": "Give them slightly more food...",
+    "icon": "FaUtensils"
+  },
+  {
+    "id": 5,
+    "title": "Groom, But Don’t Overdo Baths",
+    "description": "Regular grooming helps maintain healthy fur...",
+    "icon": "FaBath"
+  }
+]

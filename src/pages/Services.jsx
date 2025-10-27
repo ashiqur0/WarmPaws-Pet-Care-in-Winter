@@ -7,7 +7,7 @@ const Services = () => {
     // console.log(data);
 
     return (
-        <div className='md:w-7xl px-4 md:mx-auto w-full'>
+        <div className='md:w-7xl px-4 md:mx-auto w-full my-10'>
             <h1 className='text-3xl font-semibold mb-7'>Popular Wintr Care Service</h1>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                 {
