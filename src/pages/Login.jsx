@@ -1,4 +1,5 @@
 import React from 'react';
+import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 
@@ -17,14 +18,17 @@ const Login = () => {
     }
 
     return (
-        <div className="md:w-7xl mx-auto flex justify-center items-center min-h-screen">
+        <div className="md:w-7xl md:mx-auto mx-3 flex justify-center items-center min-h-screen">
             <div className="w-full max-w-md shrink-0 shadow-2xl bg-slate-800 px-8 py-10 rounded-md">
+                <h1 className='text-center text-3xl font-semibold mb-5'>Login</h1>
+
                 <form
                     onSubmit={handleLogin}
                     className=""
                 >
                     <fieldset className="fieldset">
 
+                        {/* Email Input Field */}
                         <label className="label">Email</label>
                         <input
                             type="email"
@@ -34,6 +38,7 @@ const Login = () => {
                             required
                         />
 
+                        {/* Password Input Field */}
                         <label className="label mt-4">Password</label>
                         <input
                             type="password"
@@ -45,7 +50,11 @@ const Login = () => {
 
                         <div><a className="link link-hover">Forgot password?</a></div>
 
-                        <button type='submit' className="bg-lime-600 text-[14px] py-2 px-4 rounded-md mt-7">Login</button>
+                        {/* Login Button */}
+                        <button type='submit' className="bg-lime-600 hover:bg-lime-500 text-[14px] py-2 px-4 rounded-md mt-7">Login</button>
+
+                        {/* Google Login Button */}
+                        <button className='btn btn-outline btn-secondary w-full'><FcGoogle size={24} /> Login with Google</button>
 
                         <p className='text-center font-semibold text-[0.875rem] text-primary mt-3'>Dont’t Have An Account ? <Link to='/signup' className='text-blue-500 hover:underline'>Register</Link></p>
                     </fieldset>
