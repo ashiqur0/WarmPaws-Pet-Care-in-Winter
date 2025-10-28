@@ -20,6 +20,7 @@ const router = createBrowserRouter([
                 path: '/',
                 Component: Home,
                 loader: () => fetch('/data/services.json'),
+                hydrateFallbackElement: <Loading></Loading>
             },
             {
                 path: '/services',
@@ -39,24 +40,30 @@ const router = createBrowserRouter([
                 path: '/forgotpassword',
                 Component: ForgotPassword
             },
-        ]
-    },
-    {
-        path: '/authlayout',
-        element: <AuthLayout>
-            <MyProfile></MyProfile>
-        </AuthLayout>,
-        children: [
             {
-                path: '/authlayout/servicedetails',
-                Component: ServiceDetails
+                path: '/servicedetails/:id',
+                Component: ServiceDetails,
+                loader: () => fetch('/data/services.json'),
+                hydrateFallbackElement: <Loading></Loading>
             },
-            // {
-            //     path: '/authlayout/myprofile',
-            //     Component: MyProfile
-            // },
         ]
     },
+    // {
+    //     path: '/authlayout',
+    //     element: <AuthLayout>
+    //         <MyProfile></MyProfile>
+    //     </AuthLayout>,
+    //     children: [
+    //         {
+    //             path: '/authlayout/servicedetails',
+    //             Component: ServiceDetails
+    //         },
+    //         // {
+    //         //     path: '/authlayout/myprofile',
+    //         //     Component: MyProfile
+    //         // },
+    //     ]
+    // },
     {
         path: '/*',
         Component: NotFound

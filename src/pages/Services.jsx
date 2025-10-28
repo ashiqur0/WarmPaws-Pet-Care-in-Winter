@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const Services = () => {
     const data = useLoaderData();
@@ -21,7 +21,8 @@ const Services = () => {
                             <p>${petService.price}</p>
                             <p className='flex items-center gap-2'><FaStar /><span>{petService.rating}</span></p>
                         </div>
-                        <button className='btn w-full bg-lime-500 hover:bg-lime-400'>See Details</button>
+                        
+                        <Link to={`/servicedetails/${petService.serviceId}`} className='btn w-full bg-lime-500 hover:bg-lime-400'>See Details</Link>
                     </div>
                     )}
             </div>

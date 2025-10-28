@@ -13,7 +13,7 @@ const Carousel2 = ({data}) => {
   };
 
   return (
-    <div className="carousel w-full my-10 relative overflow-hidden">
+    <div className="carousel w-full my-10 relative overflow-hidden z-1">
       {data.map((pet) => (
         <div
           key={pet.serviceId}
