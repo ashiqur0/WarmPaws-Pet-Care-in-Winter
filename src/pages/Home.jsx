@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router';
 import Services from './Services';
 import WinterCareTips from '../components/WinterCareTips';
 import MeetOutExpert from '../components/MeetOutExpert';
+import Marquee from 'react-fast-marquee';
 
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
     <div>
       <Carousel2 data={data}></Carousel2>
       <Services></Services>
-      <WinterCareTips></WinterCareTips>
+      <WinterCareTips></WinterCareTips>      
       <MeetOutExpert></MeetOutExpert>
     </div>
   );

@@ -28,46 +28,36 @@ const router = createBrowserRouter([
                 loader: () => fetch('/data/services.json'),
                 hydrateFallbackElement: <Loading></Loading>
             },
+        ]
+    },
+    {
+        path: '/auth',
+        element: <AuthLayout />,
+        children: [
             {
-                path: '/signup',
-                Component: Signup
-            },
-            {
-                path: '/login',
+                path: '/auth/login',
                 Component: Login
             },
             {
-                path: '/forgotpassword',
+                path: '/auth/signup',
+                Component: Signup
+            },
+            {
+                path: '/auth/forgotpassword',
                 Component: ForgotPassword
             },
             {
-                path: '/myprofile',
+                path: '/auth/myprofile',
                 Component: MyProfile
             },
             {
-                path: '/services/servicedetails/:id',
+                path: '/auth/services/servicedetails/:id',
                 Component: ServiceDetails,
                 loader: () => fetch('/data/services.json'),
                 hydrateFallbackElement: <Loading></Loading>
             },
         ]
     },
-    // {
-    //     path: '/authlayout',
-    //     element: <AuthLayout>
-    //         <MyProfile></MyProfile>
-    //     </AuthLayout>,
-    //     children: [
-    //         {
-    //             path: '/authlayout/servicedetails',
-    //             Component: ServiceDetails
-    //         },
-    //         // {
-    //         //     path: '/authlayout/myprofile',
-    //         //     Component: MyProfile
-    //         // },
-    //     ]
-    // },
     {
         path: '/*',
         Component: NotFound

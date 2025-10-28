@@ -20,7 +20,7 @@ const Signup = () => {
     }
 
     return (
-        <div className="md:w-7xl md:mx-auto mx-3 flex justify-center items-center min-h-screen">
+        <div className="md:w-7xl md:mx-auto mx-3 flex justify-center items-center min-h-screen md:py-10">
             <div className="w-full max-w-md shrink-0 shadow-2xl bg-slate-800 px-8 py-10 rounded-md">
                 <h1 className='text-center text-3xl font-semibold mb-5'>Sign up</h1>
 
@@ -38,14 +38,23 @@ const Signup = () => {
                             placeholder="Name"
                             name='name'
                             required
-                        />                        
-                        
+                        />
+
                         <label className="label mt-4">Email</label>
                         <input
                             type="email"
                             className="bg-slate-900 text-[14px] py-2 px-4 rounded-sm"
                             placeholder="Email"
                             name='email'
+                            required
+                        />
+
+                        <label className="label mt-4">Photo URL</label>
+                        <input
+                            type="txt"
+                            className="bg-slate-900 text-[14px] py-2 px-4 rounded-sm"
+                            placeholder="Photo"
+                            name='photo'
                             required
                         />
 
@@ -62,7 +71,10 @@ const Signup = () => {
                         {/* Login Button */}
                         <button type='submit' className="bg-lime-600 hover:bg-lime-500 text-[14px] py-2 px-4 rounded-md mt-7">Sign up</button>
 
-                        <p className='text-center font-semibold text-[0.875rem] text-primary mt-3'>Already have an account ? <Link to='/auth/login' className='text-green-500 hover:underline'>Login</Link></p>
+                        {/* Google Login Button */}
+                        <button className='btn btn-outline btn-secondary w-full mt-2'><FcGoogle size={24} /> Sign up with Google</button>
+
+                        <p className='text-center font-semibold text-[0.875rem] text-primary mt-3'>Already have an account ? <Link to='/login' className='text-green-500 hover:underline'>Login</Link></p>
                     </fieldset>
                 </form>
             </div>

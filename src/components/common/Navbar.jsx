@@ -8,7 +8,7 @@ const Navbar = () => {
     const links = <>
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/services'>Services</NavLink>
-        <NavLink to='/myprofile'>MyProfile</NavLink>
+        <NavLink to='/auth/myprofile'>MyProfile</NavLink>
     </>
 
     const [open, setOpen] = useState(false);
@@ -64,8 +64,8 @@ const Navbar = () => {
                         </>
                             :
                             <>
-                                <Link to='/login' className="btn px-10 bg-slate-900">Login</Link>
-                                <Link to='/signup' className="btn px-10 bg-slate-900">Signup</Link>
+                                <Link to='/auth/login' className="btn px-10 bg-slate-900">Login</Link>
+                                <Link to='/auth/signup' className="btn px-10 bg-slate-900">Signup</Link>
                             </>
                     }
                 </div>
