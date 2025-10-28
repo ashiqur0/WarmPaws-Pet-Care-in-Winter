@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router';
 import logo from '/logo.png'
 import { IoCloseOutline } from 'react-icons/io5';
 import { CiMenuFries } from 'react-icons/ci';
+import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
     const links = <>
-        <Link to='/'>Home</Link>
-        <Link to='/services'>Services</Link>
-        <Link to='/myprofile'>MyProfile</Link>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/services'>Services</NavLink>
+        <NavLink to='/myprofile'>MyProfile</NavLink>
     </>
 
     const [open, setOpen] = useState(false);

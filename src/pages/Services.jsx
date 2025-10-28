@@ -21,8 +21,8 @@ const Services = () => {
                             <p>${petService.price}</p>
                             <p className='flex items-center gap-2'><FaStar /><span>{petService.rating}</span></p>
                         </div>
-                        
-                        <Link to={`/servicedetails/${petService.serviceId}`} className='btn w-full bg-lime-500 hover:bg-lime-400'>See Details</Link>
+
+                        <Link to={`/services/servicedetails/${petService.serviceId}`} className='btn w-full bg-lime-500 hover:bg-lime-400'>See Details</Link>
                     </div>
                     )}
             </div>

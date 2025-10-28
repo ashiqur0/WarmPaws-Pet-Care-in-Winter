@@ -41,7 +41,11 @@ const router = createBrowserRouter([
                 Component: ForgotPassword
             },
             {
-                path: '/servicedetails/:id',
+                path: '/myprofile',
+                Component: MyProfile
+            },
+            {
+                path: '/services/servicedetails/:id',
                 Component: ServiceDetails,
                 loader: () => fetch('/data/services.json'),
                 hydrateFallbackElement: <Loading></Loading>

@@ -14,8 +14,8 @@ const ServiceDetails = () => {
 
 
     return (
-        <div className=''>
-            <div className='bg-slate-800 rounded-md w-full p-4 md:w-7xl md:mx-auto my-10 grid md:grid-cols-2 gap-10 items-start'>
+        <div className='bg-slate-800 md:mx-4 rounded-md'>
+            <div className=' rounded-md w-full pt-8 md:pt-14 px-4 md:w-7xl md:mx-auto my-10 grid md:grid-cols-2 gap-10 items-start'>
                 <div className=''>
                     <img src={service.image} className='rounded-md ' alt="" />
                 </div>
@@ -52,7 +52,7 @@ const ServiceDetails = () => {
 
 
             <div className="md:w-7xl w-full px-0 md:mx-auto">
-                <div className="bg-slate-800 p-4 shadow-2xl w-full rounded-md">
+                <div className="p-4 w-full rounded-md">
                     <div className="grid md:grid-cols-2 gap-10 md:gap-0 items-center py-5 md:py-10">
 
                         <h1 className='md:text-7xl text-3xl font-semibold text-center'>Book Now</h1>
