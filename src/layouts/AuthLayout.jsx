@@ -7,7 +7,7 @@ const AuthLayout = () => {
     return (
         <div>
             <Navbar />
-            <div className='bg-slate-900'>
+            <div className='bg-slate-900 py-10'>
                 <Outlet />
             </div>
             <Footer />

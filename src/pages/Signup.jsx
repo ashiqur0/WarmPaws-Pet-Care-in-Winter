@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Signup = () => {
+    const { createUser, setUser } = use(AuthContext);
+
     const handleSignup = (event) => {
         event.preventDefault();
 
         const name = event.target.name.value;
         const email = event.target.email.value;
+        const photo = event.target.photo.vlaue;
         const password = event.target.password.value;
-        console.log(name, email, password);
+        console.log(name, email, photo, password);
 
         // Toast Message
-        toast.success('Logged In...');
-        toast.error('Logged In Failed');
+        toast.success('Sign up seccess...');
+        // toast.error('Logged In Failed');
+
+        createUser(email, password)
+        .then(userInfo => {
+            const user = userInfo.user;
+            // console.log(user);
+            setUser(user);
+        })
+        .catch(error => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+        });
 
         event.target.reset();
     }

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
+    const { login } = use(AuthContext);
+
     const handleLogin = (event) => {
         event.preventDefault();
 
@@ -13,6 +16,16 @@ const Login = () => {
 
         toast.success('Logged In...');
         toast.error('Logged In Failed');
+
+        login(email, password)
+            .then(() => {
+                alert('login success');
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorCode, errorMessage);
+            })
 
         event.target.reset();
     }
