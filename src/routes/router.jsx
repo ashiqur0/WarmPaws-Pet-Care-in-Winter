@@ -10,6 +10,7 @@ import ServiceDetails from "../pages/ServiceDetails";
 import ForgotPassword from "../pages/ForgotPassword";
 import AuthLayout from "../layouts/AuthLayout";
 import Loading from "../components/Loading";
+import ProtectedRoute from "../provider/ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -48,7 +49,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/auth/myprofile',
-                Component: MyProfile
+                element: <ProtectedRoute>
+                    <MyProfile></MyProfile>
+                </ProtectedRoute>
             },
             {
                 path: '/auth/services/servicedetails/:id',
