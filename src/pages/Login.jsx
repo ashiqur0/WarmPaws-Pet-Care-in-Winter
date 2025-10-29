@@ -5,7 +5,7 @@ import { Bounce, toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
-    const { login } = use(AuthContext);
+    const { login, googleSignIn } = use(AuthContext);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -67,7 +67,11 @@ const Login = () => {
                         <button type='submit' className="bg-lime-600 hover:bg-lime-500 text-[14px] py-2 px-4 rounded-md mt-7">Login</button>
 
                         {/* Google Login Button */}
-                        <button className='btn btn-outline btn-secondary w-full mt-2'><FcGoogle size={24} /> Login with Google</button>
+                        <button
+                            onClick={googleSignIn}
+                            className='btn btn-outline btn-secondary w-full mt-2'
+                        >
+                            <FcGoogle size={24} /> Login with Google</button>
 
                         <p className='text-center font-semibold text-[0.875rem] text-primary mt-3'>Dont’t Have An Account ? <Link to='/signup' className='text-blue-500 hover:underline'>Register</Link></p>
                     </fieldset>
