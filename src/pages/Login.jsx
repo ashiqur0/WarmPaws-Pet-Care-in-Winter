@@ -9,6 +9,7 @@ import Loading from '../components/Loading';
 const Login = () => {
     const { login, loading, setLoading, auth, googleProvider } = use(AuthContext);
     const [error, setError] = useState('');
+    const [email, setEmail] = useState('');
 
     const location = useLocation();
     const navigate = useNavigate();// return a function
@@ -20,11 +21,10 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        
         login(email, password)
-        .then(() => {
-            toast.success('Logged In...');
-            navigate(`${location.state ? location.state : '/'}`);
+            .then(() => {
+                toast.success('Logged In...');
+                navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(err => {
                 const errorCode = err.code;
@@ -54,6 +54,7 @@ const Login = () => {
                             placeholder="Email"
                             name='email'
                             required
+                            onChange={e=> setEmail(e.target.value)}
                         />
 
                         {/* Password Input Field */}
@@ -66,7 +67,13 @@ const Login = () => {
                             required
                         />
 
-                        <div><a className="link link-hover">Forgot password?</a></div>
+                        {/* Forgot password */}
+                        <Link
+                            onClick={() => navigate('/auth/forgotpassword')}
+                            state={email}
+                            className='text-blue-500'
+                        >
+                            Forgot password?</Link>
 
                         {
                             // Validation
@@ -78,14 +85,14 @@ const Login = () => {
 
                         {/* Google Login Button */}
                         <button
-                            onClick={function() {
+                            onClick={function () {
                                 setLoading(true);
                                 signInWithPopup(auth, googleProvider);
                                 if (loading) {
                                     <Loading></Loading>
                                 }
                                 toast.success('Sign up seccess...');
-                                
+
                                 return navigate(`${location.state ? location.state : '/'}`);
                             }}
                             className='btn btn-outline btn-secondary w-full mt-2'

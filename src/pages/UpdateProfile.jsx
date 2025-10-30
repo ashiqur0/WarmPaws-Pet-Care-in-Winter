@@ -1,6 +1,6 @@
 import { use, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
-import { Navigate, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const UpdateProfile = () => {
