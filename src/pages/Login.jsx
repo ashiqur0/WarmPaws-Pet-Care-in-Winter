@@ -6,12 +6,12 @@ import { AuthContext } from '../provider/AuthProvider';
 import { signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
-    const { login, googleSignIn, auth, googleProvider, setLoading } = use(AuthContext);
+    const { login, setLoading, auth, googleProvider } = use(AuthContext);
     const [error, setError] = useState('');
 
     const location = useLocation();
     const navigate = useNavigate();// return a function
-    console.log(location);
+    // console.log(location);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -78,11 +78,11 @@ const Login = () => {
 
                         {/* Google Login Button */}
                         <button
-                            onClick={() => {
+                            onClick={function() {
                                 setLoading(true);
                                 signInWithPopup(auth, googleProvider);
-                                console.log(location);
-                                return navigate(`${location.state? location.state : '/'}`);
+
+                                return navigate(`${location.state ? location.state : '/'}`);
                             }}
                             className='btn btn-outline btn-secondary w-full mt-2'
                         >

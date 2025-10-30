@@ -6,12 +6,11 @@ import { AuthContext } from '../provider/AuthProvider';
 import { signInWithPopup } from 'firebase/auth';
 
 const Signup = () => {
-    const { user, createUser, setUser, updateUser, setLoading, auth, googleProvider } = use(AuthContext);
+    const { createUser, setUser, updateUser, setLoading, auth, googleProvider } = use(AuthContext);
 
     const location = useLocation();
     const navigate = useNavigate();
-
-    console.log(location);
+    // console.log(location);
 
     const handleSignup = (event) => {
         event.preventDefault();
@@ -101,14 +100,18 @@ const Signup = () => {
                         />
 
                         {/* Login Button */}
-                        <button type='submit' className="bg-lime-600 hover:bg-lime-500 text-[14px] py-2 px-4 rounded-md mt-7">Sign up</button>
+                        <button
+                            type='submit'
+                            className="bg-lime-600 hover:bg-lime-500 text-[14px] py-2 px-4 rounded-md mt-7"
+                        >
+                            Sign up</button>
 
                         {/* Google Signup Button */}
                         <button
-                            onClick={() => {
+                            onClick={function () {
                                 setLoading(true);
                                 signInWithPopup(auth, googleProvider);
-                                console.log(location);
+
                                 return navigate(`${location.state ? location.state : '/'}`);
                             }}
                             className='btn btn-outline btn-secondary w-full mt-2'

@@ -28,7 +28,7 @@ const Footer = () => {
            </div>
 
            <div className='mt-10'>
-            <h1>🔒 Privacy Policy</h1>
+            <h1 className='text-2xl font-bold'>🔒 Privacy Policy</h1>
             <p className='ml-10'>We care about your privacy and your pets’ safety. Your information is only used to provide better service experiences. We never sell or share your data with third parties.</p>
            </div>
 

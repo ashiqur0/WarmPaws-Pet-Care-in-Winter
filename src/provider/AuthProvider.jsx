@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
-import { useLocation, useNavigate } from 'react-router';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -10,9 +9,6 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    
-    // const location = useLocation();
-    // const navigate = useNavigate();
 
     // google signup
     const createUser = (email, password) => {
@@ -30,14 +26,6 @@ const AuthProvider = ({ children }) => {
             unsubscribe();
         }
     }, []);
-
-    // Google Signin
-    const googleSignIn = () => {
-        setLoading(true);
-        // console.log(state);
-        return signInWithPopup(auth, googleProvider);
-        // return navigate(`${state? state : '/'}`);
-    }
 
     // login
     const login = (email, password) => {
@@ -59,7 +47,6 @@ const AuthProvider = ({ children }) => {
         user,
         setUser,
         createUser,
-        // googleSignIn,
         auth,
         googleProvider,
         login,

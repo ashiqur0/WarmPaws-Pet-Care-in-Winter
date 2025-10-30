@@ -80,7 +80,7 @@ const ServiceDetails = () => {
 
                                 <button
                                     type='submit'
-                                    className="py-2 px-4 text-[14px] bg-lime-600 rounded-md mt-4"
+                                    className="py-2 px-4 text-[14px] hover:bg-lime-500 bg-lime-600 rounded-md mt-4"
                                 >
                                     Submit</button>
                             </fieldset>
