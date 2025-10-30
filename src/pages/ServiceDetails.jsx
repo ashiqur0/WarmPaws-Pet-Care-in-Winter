@@ -23,7 +23,6 @@ const ServiceDetails = () => {
         return toast.error('Booking Failed');
     }
 
-
     return (
         <div className='bg-slate-800 md:mx-4 rounded-md'>
             <div className='rounded-md w-full pt-8 md:pt-14 px-4 md:w-7xl md:mx-auto  py-10 grid md:grid-cols-2 gap-10 items-start'>

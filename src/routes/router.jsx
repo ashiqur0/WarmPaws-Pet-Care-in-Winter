@@ -12,6 +12,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Loading from "../components/Loading";
 import ProtectedRoute from "../provider/ProtectedRoute";
 import UpdateProfile from "../pages/UpdateProfile";
+import Test from "../components/Banner";
 
 const router = createBrowserRouter([
     {

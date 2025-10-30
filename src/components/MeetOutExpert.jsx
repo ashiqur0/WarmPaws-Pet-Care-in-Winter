@@ -19,7 +19,7 @@ const MeetOutExpert = () => {
                     {
                         experts.map(expart => <div
                             key={expart.id}
-                            className='bg-slate-800 p-4 rounded-md flex flex-col justify-between ml-5'
+                            className='bg-slate-800 p-4 rounded-md flex flex-col justify-between ml-5 cursor-pointer hover:shadow-white shadow-md border border-slate-500'
                         >
                             <div className=''>
                                 <img

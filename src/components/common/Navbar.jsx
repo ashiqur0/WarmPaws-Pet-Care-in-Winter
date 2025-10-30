@@ -7,7 +7,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const links = <>
-    <NavLink to='/'>Home</NavLink>
+    <Link to='/'>Home</Link>
     <NavLink to='/services'>Services</NavLink>
     <NavLink to='/auth/myprofile'>MyProfile</NavLink>
 </>
@@ -33,10 +33,10 @@ const Navbar = () => {
             <nav className='md:flex justify-between items-center max-w-7xl mx-auto'>
                 <div className='flex justify-between items-center cursor-pointer'>
 
-                    <NavLink to='/' className='flex items-center gap-3 md:gap-3'>
+                    <Link to='/' className='flex items-center gap-3 md:gap-3'>
                         <img className='w-7 lg:w-10' src={logo} alt="" />
                         <h1 className='font-inter font-xl lg:text-2xl font-bold bg-linear-to-r from-lime-700 to-green-700 bg-clip-text text-transparent'>WarmPaws – Pet Care in Winter</h1>
-                    </NavLink>
+                    </Link>
 
                     <button className='md:hidden cursor-pointer bg-linear-to-r from-green-700 to-lime-700 bg-clip-text mr-2'
                         onClick={() => setOpen(!open)}>

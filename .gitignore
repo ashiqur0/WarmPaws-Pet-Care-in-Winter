@@ -26,3 +26,6 @@ dist-ssr
 firebase.config.js
 .env
 .env.local
+.firebase
+firebase.json
+.firebaserc

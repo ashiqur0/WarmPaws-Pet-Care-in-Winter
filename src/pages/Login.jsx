@@ -38,7 +38,7 @@ const Login = () => {
     }
 
     return (
-        <div className="md:w-7xl md:mx-auto mx-3 flex justify-center items-center min-h-screen">
+        <div className="md:w-7xl md:mx-auto mx-3 flex justify-center items-center md:py-10">
             <div className="w-full max-w-md shrink-0 shadow-2xl bg-slate-800 px-8 py-10 rounded-md">
                 <h1 className='text-center text-3xl font-semibold mb-5'>Login your account</h1>
 
@@ -56,7 +56,11 @@ const Login = () => {
                             placeholder="Email"
                             name='email'
                             required
-                            onChange={e => setEmail(e.target.value)}
+                            onChange={e => {
+                                setEmail(e.target.value);
+                                setError('');
+                            }
+                            }
                         />
 
                         {/* Password Input Field */}
@@ -68,6 +72,7 @@ const Login = () => {
                                 placeholder="Password"
                                 name='password'
                                 required
+                                onChange={() => setError('')}
                             />
                             <p
                                 onClick={() => setShow(!show)}

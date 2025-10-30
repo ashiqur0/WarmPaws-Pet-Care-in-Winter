@@ -5,6 +5,7 @@ import { Bounce, toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
 import { signInWithPopup } from 'firebase/auth';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
+import Loading from '../components/Loading';
 
 const Signup = () => {
     const { createUser, setUser, updateUser, loading, setLoading, auth, googleProvider } = use(AuthContext);
@@ -26,6 +27,7 @@ const Signup = () => {
 
         const passwordFormat = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordFormat.test(password)) {
+            toast.error('Failed to signup')
             return setPasswordError('Password shoud contain Uppercase, Lowercase and atleast 6 character');
         }
 
@@ -138,7 +140,7 @@ const Signup = () => {
                         >
                             <FcGoogle size={24} /> Signup with Google</button>
 
-                        <p className='text-center font-semibold text-[0.875rem] text-primary mt-3'>Already have an account ? <Link to='/login' className='text-green-500 hover:underline'>Login</Link></p>
+                        <p className='text-center font-semibold text-[0.875rem] text-primary mt-3'>Already have an account ? <Link to='/auth/login' className='text-green-500 hover:underline'>Login</Link></p>
                     </fieldset>
                 </form>
             </div>
