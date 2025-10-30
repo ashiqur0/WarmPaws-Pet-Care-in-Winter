@@ -1,10 +1,8 @@
-import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router';
 
 const Services = () => {
     const data = useLoaderData();
-    // console.log(data);
 
     return (
         <div className='md:w-7xl px-4 md:mx-auto w-full my-10'>

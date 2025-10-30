@@ -16,7 +16,6 @@ const Navbar = () => {
 
     // Dynamically Define korte hobe
     const { user, logOut } = use(AuthContext);
-    const displayName = 'Ashiqur';
 
     const handleLogOut = () => {
         logOut()
@@ -70,15 +69,24 @@ const Navbar = () => {
                 <div className='md:flex hidden gap-3'>
                     {
                         user ? <>
-                            <Link onClick={handleLogOut} to='/' className="btn px-10 bg-slate-900">Logout</Link>
-                            <div className='w-10 bg-white p-1 rounded-full ml-3 cursor-pointer'>
-                                <img src="https://img.icons8.com/?size=100&id=42384&format=png&color=000000" title={displayName} />
-                            </div>
+                            <Link
+                                onClick={handleLogOut}
+                                to='/' className="py-2 rounded-sm font-semibold hover:bg-slate-800 px-10 bg-slate-900"
+                            >
+                                Logout</Link>
+                            <Link
+                                to='/auth/myprofile'
+                                className='w-10 border border-green-500 rounded-full ml-3 cursor-pointer'
+                            >
+                                <img
+                                    className='rounded-full'
+                                    src={`${user ? user?.photoURL : "https://img.icons8.com/?size=100&id=42384&format=png&color=000000"}`} title={user.displayName} />
+                            </Link>
                         </>
                             :
                             <>
-                                <Link to='/auth/login' className="btn px-10 bg-slate-900">Login</Link>
-                                <Link to='/auth/signup' className="btn px-10 bg-slate-900">Signup</Link>
+                                <Link to='/auth/login' className="py-2 rounded-sm font-semibold hover:bg-slate-800 px-10 bg-slate-900">Login</Link>
+                                <Link to='/auth/signup' className="py-2 rounded-sm font-semibold hover:bg-slate-800 px-10 bg-slate-900">Signup</Link>
                             </>
                     }
                 </div>

@@ -15,7 +15,7 @@ const MeetOutExpert = () => {
         <div className='md:w-7xl px-4 md:mx-auto w-full my-10'>
             <h1 className='text-3xl font-semibold mb-7'>Meet Our Experts</h1>
             <Marquee speed={40}>
-                <div className='grid grid-cols-1 md:grid-cols-4'>
+                <div className='grid grid-cols-4'>
                     {
                         experts.map(expart => <div
                             key={expart.id}

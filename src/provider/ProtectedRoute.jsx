@@ -1,10 +1,13 @@
 import React, { use } from 'react';
 import { AuthContext } from './AuthProvider';
-import { Navigate } from 'react-router';
+import { Navigate, useLocation } from 'react-router';
 import Loading from '../components/Loading';
 
 const ProtectedRoute = ({ children }) => {
     const { user, loading } = use(AuthContext);
+
+    const location = useLocation();
+    // console.log(location);
 
     if (loading) {
         return <Loading/>
@@ -14,7 +17,7 @@ const ProtectedRoute = ({ children }) => {
         return children;
     }
 
-    return <Navigate to='/auth/login' />;
+    return <Navigate state={location.pathname} to='/auth/login' />;
 };
 
 export default ProtectedRoute;

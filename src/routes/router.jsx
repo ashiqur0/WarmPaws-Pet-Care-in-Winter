@@ -55,7 +55,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/auth/services/servicedetails/:id',
-                Component: ServiceDetails,
+                element: <ProtectedRoute>
+                    <ServiceDetails></ServiceDetails>
+                </ProtectedRoute>,
                 loader: () => fetch('/data/services.json'),
                 hydrateFallbackElement: <Loading></Loading>,
             },

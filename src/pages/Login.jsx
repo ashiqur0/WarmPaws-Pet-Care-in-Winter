@@ -1,18 +1,23 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
+import { signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
-    const { login, googleSignIn } = use(AuthContext);
+    const { login, googleSignIn, auth, googleProvider, setLoading } = use(AuthContext);
+    const [error, setError] = useState('');
+
+    const location = useLocation();
+    const navigate = useNavigate();// return a function
+    console.log(location);
 
     const handleLogin = (event) => {
         event.preventDefault();
 
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(email, password);
 
         toast.success('Logged In...');
         toast.error('Logged In Failed');
@@ -20,11 +25,11 @@ const Login = () => {
         login(email, password)
             .then(() => {
                 alert('login success');
+                navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(error => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorCode, errorMessage);
+                setError(errorCode);
             })
 
         event.target.reset();
@@ -63,17 +68,36 @@ const Login = () => {
 
                         <div><a className="link link-hover">Forgot password?</a></div>
 
+                        {
+                            // Validation
+                            error && <p className='text-red-400 text-xs'>{error}</p>
+                        }
+
                         {/* Login Button */}
                         <button type='submit' className="bg-lime-600 hover:bg-lime-500 text-[14px] py-2 px-4 rounded-md mt-7">Login</button>
 
                         {/* Google Login Button */}
                         <button
-                            onClick={googleSignIn}
+                            onClick={() => {
+                                setLoading(true);
+                                signInWithPopup(auth, googleProvider);
+                                console.log(location);
+                                return navigate(`${location.state? location.state : '/'}`);
+                            }}
                             className='btn btn-outline btn-secondary w-full mt-2'
                         >
                             <FcGoogle size={24} /> Login with Google</button>
 
-                        <p className='text-center font-semibold text-[0.875rem] text-primary mt-3'>Dont’t Have An Account ? <Link to='/signup' className='text-blue-500 hover:underline'>Register</Link></p>
+                        <p
+                            className='text-center font-semibold text-[0.875rem] text-primary mt-3'>Dont’t Have An Account ?
+                            <Link
+                                state={location.state}
+                                to='/auth/signup'
+                                className='text-blue-500 hover:underline'
+                            >
+                                Register</Link>
+                        </p>
+
                     </fieldset>
                 </form>
             </div>
