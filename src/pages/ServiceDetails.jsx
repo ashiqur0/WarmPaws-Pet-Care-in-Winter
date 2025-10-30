@@ -27,7 +27,7 @@ const ServiceDetails = () => {
         <div className='bg-slate-800 md:mx-4 rounded-md'>
             <div className='rounded-md w-full pt-8 md:pt-14 px-4 md:w-7xl md:mx-auto  py-10 grid md:grid-cols-2 gap-10 items-start'>
                 <div className=''>
-                    <img src={service.image} className='rounded-md ' alt="" />
+                    <img src={service.image} className='rounded-md h-55 md:h-80 object-cover' alt="" />
                 </div>
                 <div>
                     <div className='flex items-center gap-4'>
@@ -36,7 +36,7 @@ const ServiceDetails = () => {
                     </div>
 
                     <div className='border-t border-b border-slate-600 my-5 py-5'>
-                        <h2 className='text-[14px] font-medium '>{service.serviceName}</h2>
+                        <h2 className='text-xl font-semibold '>{service.serviceName}</h2>
                         <p className='mt-2'>{service.description}</p>
                     </div>
 
@@ -74,7 +74,7 @@ const ServiceDetails = () => {
                             }}
                             className='md:flex justify-center items-center'
                         >
-                            <fieldset className="fieldset w-4/5 mx-auto md:w-2/3 ">
+                            <fieldset className="fieldset w-full mx-auto md:w-2/3 ">
                                 <label className="text-[14px]">Name</label>
                                 <input
                                     type="txt"

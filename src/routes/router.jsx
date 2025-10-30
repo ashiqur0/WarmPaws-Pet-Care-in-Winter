@@ -5,7 +5,7 @@ import Services from "../pages/Services";
 import MyProfile from "../pages/MyProfile";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
-import NotFound from "../pages/NotFound";
+import NotFound from "../pages/PageNotFound";
 import ServiceDetails from "../pages/ServiceDetails";
 import ForgotPassword from "../pages/ForgotPassword";
 import AuthLayout from "../layouts/AuthLayout";
@@ -13,11 +13,13 @@ import Loading from "../components/Loading";
 import ProtectedRoute from "../provider/ProtectedRoute";
 import UpdateProfile from "../pages/UpdateProfile";
 import Test from "../components/Banner";
+import PageNotFound from "../pages/PageNotFound";
 
 const router = createBrowserRouter([
     {
         path: '/',
         Component: MainLayout,
+        errorElement: <PageNotFound></PageNotFound>,
         children: [
             {
                 path: '/',

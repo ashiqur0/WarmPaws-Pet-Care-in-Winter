@@ -48,7 +48,7 @@ const Navbar = () => {
                         `}>{links}
                         {
                             user ? <>
-                                <NavLink to='/'>Logout</NavLink>
+                                <Link to='/'>Logout</Link>
                             </>
                                 :
                                 <>
