@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
@@ -8,9 +8,10 @@ import { signInWithPopup } from 'firebase/auth';
 const Signup = () => {
     const { createUser, setUser, updateUser, setLoading, auth, googleProvider } = use(AuthContext);
 
+    const [passwordError, setPasswordError] = useState('');
+
     const location = useLocation();
     const navigate = useNavigate();
-    // console.log(location);
 
     const handleSignup = (event) => {
         event.preventDefault();
@@ -21,39 +22,39 @@ const Signup = () => {
         const password = event.target.password.value;
         console.log(name, email, photo, password);
 
-        // Toast Message
-        toast.success('Sign up seccess...');
-        // toast.error('Logged In Failed');
-
+        const passwordFormat = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        if (!passwordFormat.test(password)) {
+            return setPasswordError('Password shoud contain Uppercase, Lowercase and atleast 6 character');
+        }
+        
         createUser(email, password)
-            .then(userInfo => {
-                const user = userInfo.user;
-                // console.log(user);
-                updateUser({ displayName: name, photoURL: photo })
-                    .then(() => {
-                        setUser({ ...user, displayName: name, photoURL: photo });
-                        navigate(`${location.state ? location.state : '/'}`);
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        setUser(user);
-                    })
+        .then(userInfo => {
+            const user = userInfo.user;
+            
+            // update user
+            updateUser({ displayName: name, photoURL: photo })
+            .then(() => {
+                setUser({ ...user, displayName: name, photoURL: photo });
+                toast.success('Sign up seccess...');
                 navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(error => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                        toast.error(error.code);
+                        setUser(user);
+                    })
+                    navigate(`${location.state ? location.state : '/'}`);
+                })
+                .catch(error => {
+                    toast.error(error.code);
             });
-
-        // console.log(user);
+            
         event.target.reset();
     }
 
     return (
         <div className="md:w-7xl md:mx-auto mx-3 flex justify-center items-center min-h-screen md:py-10">
             <div className="w-full max-w-md shrink-0 shadow-2xl bg-slate-800 px-8 py-10 rounded-md">
-                <h1 className='text-center text-3xl font-semibold mb-5'>Sign up</h1>
+                <h1 className='text-center text-3xl font-semibold mb-5'>Sign up your account</h1>
 
                 <form
                     onSubmit={handleSignup}
@@ -99,6 +100,10 @@ const Signup = () => {
                             required
                         />
 
+                        {
+                            passwordError && <p className='text-red-400 text-xs'>{passwordError}</p>
+                        }
+
                         {/* Login Button */}
                         <button
                             type='submit'
@@ -111,7 +116,7 @@ const Signup = () => {
                             onClick={function () {
                                 setLoading(true);
                                 signInWithPopup(auth, googleProvider);
-
+                                toast.success('Sign up seccess...');
                                 return navigate(`${location.state ? location.state : '/'}`);
                             }}
                             className='btn btn-outline btn-secondary w-full mt-2'

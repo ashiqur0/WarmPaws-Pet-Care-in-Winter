@@ -4,6 +4,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { CiMenuFries } from 'react-icons/ci';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const links = <>
     <NavLink to='/'>Home</NavLink>
@@ -20,12 +21,12 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                alert('logout success')
+                toast.success('Seccess Logout...');
             })
             .catch(error => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                // const errorCode = error.code;
+                // const errorMessage = error.message;
+                toast.error('Logout Failed with: ', error.code);
             })
     }
 
@@ -91,6 +92,19 @@ const Navbar = () => {
                     }
                 </div>
             </nav>
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+                transition={Bounce}
+            />
         </section>
     );
 };

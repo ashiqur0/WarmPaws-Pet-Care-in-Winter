@@ -19,17 +19,16 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        toast.success('Logged In...');
-        toast.error('Logged In Failed');
-
+        
         login(email, password)
-            .then(() => {
-                alert('login success');
-                navigate(`${location.state ? location.state : '/'}`);
+        .then(() => {
+            toast.success('Logged In...');
+            navigate(`${location.state ? location.state : '/'}`);
             })
-            .catch(error => {
-                const errorCode = error.code;
+            .catch(err => {
+                const errorCode = err.code;
                 setError(errorCode);
+                toast.error(errorCode);
             })
 
         event.target.reset();
@@ -38,7 +37,7 @@ const Login = () => {
     return (
         <div className="md:w-7xl md:mx-auto mx-3 flex justify-center items-center min-h-screen">
             <div className="w-full max-w-md shrink-0 shadow-2xl bg-slate-800 px-8 py-10 rounded-md">
-                <h1 className='text-center text-3xl font-semibold mb-5'>Login</h1>
+                <h1 className='text-center text-3xl font-semibold mb-5'>Login your account</h1>
 
                 <form
                     onSubmit={handleLogin}
@@ -81,7 +80,8 @@ const Login = () => {
                             onClick={function() {
                                 setLoading(true);
                                 signInWithPopup(auth, googleProvider);
-
+                                toast.success('Sign up seccess...');
+                                
                                 return navigate(`${location.state ? location.state : '/'}`);
                             }}
                             className='btn btn-outline btn-secondary w-full mt-2'

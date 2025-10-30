@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData, useParams } from 'react-router';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const ServiceDetails = () => {
     const { id } = useParams();
@@ -10,7 +11,17 @@ const ServiceDetails = () => {
     useEffect(() => {
         const serviceFind = data.find(serv => serv.serviceId == id);
         setService(serviceFind);
-    }, [id, data])
+    }, [id, data]);
+
+    const handleBooking = (event) => {
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        
+        if (name && email) {
+            return toast.success('You have booked the services...');
+        }
+        return toast.error('Booking Failed');
+    }
 
 
     return (
@@ -58,6 +69,7 @@ const ServiceDetails = () => {
                         <h1 className='md:text-7xl text-3xl font-semibold text-center'>Book Now</h1>
                         <form
                             onSubmit={(e) => {
+                                handleBooking(e);
                                 e.preventDefault();
                                 e.target.reset();
                             }}
@@ -69,6 +81,8 @@ const ServiceDetails = () => {
                                     type="txt"
                                     className="py-2 px-4 text-[14px] rounded-md bg-slate-900 border-0"
                                     placeholder="Name"
+                                    name='name'
+                                    required
                                 />
 
                                 <label className="text-[14px] mt-5">Email</label>
@@ -76,6 +90,8 @@ const ServiceDetails = () => {
                                     type="email"
                                     className="py-2 px-4 text-[14px] rounded-md bg-slate-900 border-0"
                                     placeholder="Email"
+                                    name='email'
+                                    required
                                 />
 
                                 <button
@@ -88,6 +104,19 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+                transition={Bounce}
+            />
         </div>
     );
 };
