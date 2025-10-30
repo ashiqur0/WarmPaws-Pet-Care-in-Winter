@@ -4,9 +4,10 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
 import { signInWithPopup } from 'firebase/auth';
+import Loading from '../components/Loading';
 
 const Login = () => {
-    const { login, setLoading, auth, googleProvider } = use(AuthContext);
+    const { login, loading, setLoading, auth, googleProvider } = use(AuthContext);
     const [error, setError] = useState('');
 
     const location = useLocation();
@@ -80,6 +81,9 @@ const Login = () => {
                             onClick={function() {
                                 setLoading(true);
                                 signInWithPopup(auth, googleProvider);
+                                if (loading) {
+                                    <Loading></Loading>
+                                }
                                 toast.success('Sign up seccess...');
                                 
                                 return navigate(`${location.state ? location.state : '/'}`);

@@ -11,6 +11,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import AuthLayout from "../layouts/AuthLayout";
 import Loading from "../components/Loading";
 import ProtectedRoute from "../provider/ProtectedRoute";
+import UpdateProfile from "../pages/UpdateProfile";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +52,12 @@ const router = createBrowserRouter([
                 path: '/auth/myprofile',
                 element: <ProtectedRoute>
                     <MyProfile></MyProfile>
+                </ProtectedRoute>
+            },
+            {
+                path: '/auth/updateprofile',
+                element: <ProtectedRoute>
+                    <UpdateProfile></UpdateProfile>
                 </ProtectedRoute>
             },
             {

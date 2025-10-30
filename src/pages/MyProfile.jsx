@@ -1,9 +1,9 @@
-import React, { use } from 'react';
+import { use } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import { Link } from 'react-router';
 
 const MyProfile = () => {
-    const { user } = use(AuthContext);
-    // console.log(user);
+    const { user } = use(AuthContext);    
     const { displayName, email, photoURL } = user;
 
     return (
@@ -20,7 +20,11 @@ const MyProfile = () => {
                     <h1>{email}</h1>
                 </div>
 
-                <button className="w-full bg-lime-600 hover:bg-lime-500 text-[14px] py-2 px-4 rounded-md">Update Profile</button>
+                <Link
+                    to='/auth/updateprofile'
+                    className="w-full bg-lime-600 hover:bg-lime-500 text-[14px] py-2 px-4 rounded-md"
+                >
+                    Update Profile</Link>
             </div>
         </div>
     );

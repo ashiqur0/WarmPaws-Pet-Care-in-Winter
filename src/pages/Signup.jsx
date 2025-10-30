@@ -6,7 +6,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { signInWithPopup } from 'firebase/auth';
 
 const Signup = () => {
-    const { createUser, setUser, updateUser, setLoading, auth, googleProvider } = use(AuthContext);
+    const { createUser, setUser, updateUser, loading, setLoading, auth, googleProvider } = use(AuthContext);
 
     const [passwordError, setPasswordError] = useState('');
 
@@ -26,28 +26,28 @@ const Signup = () => {
         if (!passwordFormat.test(password)) {
             return setPasswordError('Password shoud contain Uppercase, Lowercase and atleast 6 character');
         }
-        
+
         createUser(email, password)
-        .then(userInfo => {
-            const user = userInfo.user;
-            
-            // update user
-            updateUser({ displayName: name, photoURL: photo })
-            .then(() => {
-                setUser({ ...user, displayName: name, photoURL: photo });
-                toast.success('Sign up seccess...');
-                navigate(`${location.state ? location.state : '/'}`);
-            })
-            .catch(error => {
+            .then(userInfo => {
+                const user = userInfo.user;
+
+                // update user
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photo });
+                        toast.success('Sign up seccess...');
+                        navigate(`${location.state ? location.state : '/'}`);
+                    })
+                    .catch(error => {
                         toast.error(error.code);
                         setUser(user);
                     })
-                    navigate(`${location.state ? location.state : '/'}`);
-                })
-                .catch(error => {
-                    toast.error(error.code);
+                navigate(`${location.state ? location.state : '/'}`);
+            })
+            .catch(error => {
+                toast.error(error.code);
             });
-            
+
         event.target.reset();
     }
 
@@ -62,7 +62,7 @@ const Signup = () => {
                 >
                     <fieldset className="fieldset">
 
-                        {/* Email Input Field */}
+                        {/* Name Input Field */}
                         <label className="label">Name</label>
                         <input
                             type="text"
@@ -72,6 +72,7 @@ const Signup = () => {
                             required
                         />
 
+                        {/* Email */}
                         <label className="label mt-4">Email</label>
                         <input
                             type="email"
@@ -81,6 +82,7 @@ const Signup = () => {
                             required
                         />
 
+                        {/* Photo */}
                         <label className="label mt-4">Photo URL</label>
                         <input
                             type="txt"
@@ -115,6 +117,9 @@ const Signup = () => {
                         <button
                             onClick={function () {
                                 setLoading(true);
+                                if (loading) {
+                                    <Loading></Loading>
+                                }
                                 signInWithPopup(auth, googleProvider);
                                 toast.success('Sign up seccess...');
                                 return navigate(`${location.state ? location.state : '/'}`);
