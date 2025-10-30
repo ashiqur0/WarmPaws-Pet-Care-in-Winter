@@ -24,8 +24,6 @@ const Navbar = () => {
                 toast.success('Seccess Logout...');
             })
             .catch(error => {
-                // const errorCode = error.code;
-                // const errorMessage = error.message;
                 toast.error('Logout Failed with: ', error.code);
             })
     }
@@ -35,10 +33,10 @@ const Navbar = () => {
             <nav className='md:flex justify-between items-center max-w-7xl mx-auto'>
                 <div className='flex justify-between items-center cursor-pointer'>
 
-                    <Link to='/' className='flex items-center gap-3 md:gap-3'>
+                    <NavLink to='/' className='flex items-center gap-3 md:gap-3'>
                         <img className='w-7 lg:w-10' src={logo} alt="" />
                         <h1 className='font-inter font-xl lg:text-2xl font-bold bg-linear-to-r from-lime-700 to-green-700 bg-clip-text text-transparent'>WarmPaws – Pet Care in Winter</h1>
-                    </Link>
+                    </NavLink>
 
                     <button className='md:hidden cursor-pointer bg-linear-to-r from-green-700 to-lime-700 bg-clip-text mr-2'
                         onClick={() => setOpen(!open)}>
@@ -50,12 +48,12 @@ const Navbar = () => {
                         `}>{links}
                         {
                             user ? <>
-                                <Link to='/'>Logout</Link>
+                                <NavLink to='/'>Logout</NavLink>
                             </>
                                 :
                                 <>
-                                    <Link to='/login'>Login</Link>
-                                    <Link to='/signup'>Signup</Link>
+                                    <NavLink to='/auth/login'>Login</NavLink>
+                                    <NavLink to='/auth/signup'>Signup</NavLink>
                                 </>
                         }
                     </ul>

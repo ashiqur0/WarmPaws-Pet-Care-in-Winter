@@ -5,11 +5,13 @@ import { Bounce, toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
 import { signInWithPopup } from 'firebase/auth';
 import Loading from '../components/Loading';
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const { login, loading, setLoading, auth, googleProvider } = use(AuthContext);
     const [error, setError] = useState('');
     const [email, setEmail] = useState('');
+    const [show, setShow] = useState(false);
 
     const location = useLocation();
     const navigate = useNavigate();// return a function
@@ -54,18 +56,26 @@ const Login = () => {
                             placeholder="Email"
                             name='email'
                             required
-                            onChange={e=> setEmail(e.target.value)}
+                            onChange={e => setEmail(e.target.value)}
                         />
 
                         {/* Password Input Field */}
                         <label className="label mt-4">Password</label>
-                        <input
-                            type="password"
-                            className="bg-slate-900 text-[14px] py-2 px-4 rounded-sm"
-                            placeholder="Password"
-                            name='password'
-                            required
-                        />
+                        <div className='flex items-center'>
+                            <input
+                                type={show ? 'txt' : 'password'}
+                                className="bg-slate-900 text-[14px] py-2 px-4 rounded-sm w-full"
+                                placeholder="Password"
+                                name='password'
+                                required
+                            />
+                            <p
+                                onClick={() => setShow(!show)}
+                                className='cursor-pointer -ml-8'
+                            >
+                                {show && <FaRegEye size={16} /> || <FaRegEyeSlash size={16} />}</p>
+                        </div>
+
 
                         {/* Forgot password */}
                         <Link
