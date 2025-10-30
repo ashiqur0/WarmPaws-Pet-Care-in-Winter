@@ -7,7 +7,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const links = <>
-    <Link to='/'>Home</Link>
+    <NavLink to='/'>Home</NavLink>
     <NavLink to='/services'>Services</NavLink>
     <NavLink to='/auth/myprofile'>MyProfile</NavLink>
 </>
@@ -68,11 +68,11 @@ const Navbar = () => {
                 <div className='md:flex hidden gap-3'>
                     {
                         user ? <>
-                            <Link
+                            <NavLink
                                 onClick={handleLogOut}
                                 to='/' className="py-2 rounded-sm font-semibold hover:bg-slate-800 px-10 bg-slate-900"
                             >
-                                Logout</Link>
+                                Logout</NavLink>
                             <Link
                                 to='/auth/myprofile'
                                 className='w-10 border border-green-500 rounded-full ml-3 cursor-pointer'
