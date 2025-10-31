@@ -23,7 +23,7 @@ const Signup = () => {
         const email = event.target.email.value;
         const photo = event.target.photo.value;
         const password = event.target.password.value;
-        console.log(name, email, photo, password);
+        // console.log(name, email, photo, password);
 
         const passwordFormat = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordFormat.test(password)) {
