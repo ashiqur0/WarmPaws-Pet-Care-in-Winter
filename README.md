@@ -88,7 +88,7 @@ Dev / tooling:
 
 ## Getting Started
 1. Clone
-   git clone https://github.com/your-username/warmpaws
+   git clone https://github.com/programming-hero-web-course2/b12-a9-firesheild-ashiqur0
 2. Install
    npm install
 3. Run dev server
