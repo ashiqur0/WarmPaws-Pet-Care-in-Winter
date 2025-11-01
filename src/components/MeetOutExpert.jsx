@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 
 const MeetOutExpert = () => {
     const [experts, setExpert] = useState([]);
-    useState(() => {
+    
+    useEffect(() => {
         fetch('/data/experts.json')
             .then(res => res.json())
             .then(data => setExpert(data));

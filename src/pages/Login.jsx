@@ -1,21 +1,19 @@
-import React, { use, useState } from 'react';
+import { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
-import { signInWithPopup } from 'firebase/auth';
-import Loading from '../components/Loading';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
-    const { login, loading, setLoading, auth, googleProvider } = use(AuthContext);
+
+    const { login, signInWithGoogle } = use(AuthContext);
     const [error, setError] = useState('');
     const [email, setEmail] = useState('');
     const [show, setShow] = useState(false);
 
     const location = useLocation();
     const navigate = useNavigate();// return a function
-    // console.log(location);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -32,9 +30,21 @@ const Login = () => {
                 const errorCode = err.code;
                 setError(errorCode);
                 toast.error(errorCode);
-            })
+            });
 
         event.target.reset();
+    }
+
+    const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+            .then(() => {
+                toast.success('SignIn Success...');
+                navigate(`${location.state ? location.state : '/'}`);
+            })
+            .catch(err => {
+                const errorCode = err.code;
+                toast.fail(errorCode);
+            });
     }
 
     return (
@@ -100,16 +110,8 @@ const Login = () => {
 
                         {/* Google Login Button */}
                         <button
-                            onClick={function () {
-                                setLoading(true);
-                                signInWithPopup(auth, googleProvider);
-                                if (loading) {
-                                    <Loading></Loading>
-                                }
-                                toast.success('Sign up seccess...');
-
-                                return navigate(`${location.state ? location.state : '/'}`);
-                            }}
+                            type = 'button'
+                            onClick={handleSignInWithGoogle}
                             className='btn btn-outline btn-secondary w-full mt-2'
                         >
                             <FcGoogle size={24} /> Login with Google</button>

@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/common/Navbar';
 import { Outlet, useNavigation } from 'react-router';
 import Footer from '../components/common/Footer';
+import Loading from '../components/Loading';
 
 const AuthLayout = () => {
     const {state} = useNavigation();

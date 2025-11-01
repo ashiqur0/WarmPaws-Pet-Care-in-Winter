@@ -1,14 +1,12 @@
-import React, { use, useState } from 'react';
+import { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
-import { signInWithPopup } from 'firebase/auth';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
-import Loading from '../components/Loading';
 
 const Signup = () => {
-    const { createUser, setUser, updateUser, loading, setLoading, auth, googleProvider } = use(AuthContext);
+    const { createUser, setUser, updateUser, signInWithGoogle } = use(AuthContext);
 
     const [passwordError, setPasswordError] = useState('');
     const [show, setShow] = useState(false);
@@ -28,7 +26,7 @@ const Signup = () => {
         const passwordFormat = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordFormat.test(password)) {
             toast.error('Failed to signup')
-            return setPasswordError('Password shoud contain Uppercase, Lowercase and atleast 6 character');
+            return setPasswordError('Password should contain Uppercase, Lowercase and at least 6 character');
         }
 
         createUser(email, password)
@@ -39,7 +37,7 @@ const Signup = () => {
                 updateUser({ displayName: name, photoURL: photo })
                     .then(() => {
                         setUser({ ...user, displayName: name, photoURL: photo });
-                        toast.success('Sign up seccess...');
+                        toast.success('Sign up success...');
                         navigate(`${location.state ? location.state : '/'}`);
                     })
                     .catch(error => {
@@ -54,6 +52,18 @@ const Signup = () => {
 
         event.target.reset();
     }
+
+    const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+        .then(() => {
+            toast.success('SignIn Success...');
+            navigate(`${location.state ? location.state : '/'}`);
+        })
+        .catch(err => {
+            const errorCode = err.code;
+            toast.fail(errorCode);
+        });
+    }    
 
     return (
         <div className="md:w-7xl md:mx-auto mx-3 flex justify-center items-center min-h-screen md:py-10">
@@ -125,17 +135,10 @@ const Signup = () => {
                         >
                             Sign up</button>
 
-                        {/* Google Signup Button */}
+                        {/* Google SignIn Button */}
                         <button
-                            onClick={function () {
-                                setLoading(true);
-                                if (loading) {
-                                    <Loading></Loading>
-                                }
-                                signInWithPopup(auth, googleProvider);
-                                toast.success('Sign up seccess...');
-                                return navigate(`${location.state ? location.state : '/'}`);
-                            }}
+                            type='button'
+                            onClick={handleSignInWithGoogle}
                             className='btn btn-outline btn-secondary w-full mt-2'
                         >
                             <FcGoogle size={24} /> Signup with Google</button>

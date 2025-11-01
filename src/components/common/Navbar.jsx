@@ -6,22 +6,21 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 
-const links = <>
-    <NavLink to='/'>Home</NavLink>
-    <NavLink to='/services'>Services</NavLink>
-    <NavLink to='/auth/myprofile'>MyProfile</NavLink>
-</>
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-
-    // Dynamically Define korte hobe
     const { user, logOut } = use(AuthContext);
 
+    const links = <>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/services'>Services</NavLink>
+        <NavLink to='/auth/myprofile'>MyProfile</NavLink>
+    </>
+    
     const handleLogOut = () => {
-        logOut()
+        return logOut()
             .then(() => {
-                toast.success('Seccess Logout...');
+                toast.success('Success Logout...');
             })
             .catch(error => {
                 toast.error('Logout Failed with: ', error.code);
