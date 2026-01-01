@@ -3,8 +3,8 @@ import logo from '/logo.png'
 import { IoCloseOutline } from 'react-icons/io5';
 import { CiMenuFries } from 'react-icons/ci';
 import { Link, NavLink } from 'react-router';
-import { AuthContext } from '../../provider/AuthProvider';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
