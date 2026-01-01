@@ -2,8 +2,8 @@ import { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
-import { AuthContext } from '../provider/AuthProvider';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
+import { AuthContext } from '../context/AuthContext';
 
 const Signup = () => {
     const { createUser, setUser, updateUser, signInWithGoogle } = use(AuthContext);
