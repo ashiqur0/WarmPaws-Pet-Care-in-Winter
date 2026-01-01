@@ -6,7 +6,6 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 
-
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const { user, logOut } = use(AuthContext);
@@ -28,7 +27,7 @@ const Navbar = () => {
     }
 
     return (
-        <section className='p-4 shadow-md shadow-gray-800 bg-slate-950 '>
+        <section className='p-4 shadow-md shadow-slate-900 bg-slate-900 '>
             <nav className='md:flex justify-between items-center max-w-7xl mx-auto'>
                 <div className='flex justify-between items-center cursor-pointer'>
 
@@ -83,8 +82,8 @@ const Navbar = () => {
                         </>
                             :
                             <>
-                                <Link to='/auth/login' className="py-2 rounded-sm font-semibold hover:bg-slate-800 px-10 bg-slate-900">Login</Link>
-                                <Link to='/auth/signup' className="py-2 rounded-sm font-semibold hover:bg-slate-800 px-10 bg-slate-900">Signup</Link>
+                                <Link to='/auth/login' className="py-2 rounded-sm font-semibold hover:bg-slate-800 px-2 bg-slate-900">Login</Link>
+                                <Link to='/auth/signup' className="py-2 rounded-sm font-semibold hover:bg-slate-800 px-2 bg-slate-900">Signup</Link>
                             </>
                     }
                 </div>

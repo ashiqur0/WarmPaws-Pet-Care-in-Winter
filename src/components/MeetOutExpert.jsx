@@ -20,7 +20,7 @@ const MeetOutExpert = () => {
                     {
                         experts.map(expart => <div
                             key={expart.id}
-                            className='bg-slate-800 p-4 rounded-md flex flex-col justify-between ml-5 cursor-pointer hover:shadow-white shadow-md border border-slate-500'
+                            className='bg-slate-900 p-4 rounded-md flex flex-col justify-between ml-5 cursor-pointer hover:shadow-white shadow-md border border-slate-500'
                         >
                             <div className=''>
                                 <img
@@ -34,7 +34,7 @@ const MeetOutExpert = () => {
 
                                 </div>
                             </div>
-                            <button className='btn w-full bg-lime-500  hover:bg-lime-400'>Contacts</button>
+                            <button className='btn w-full bg-slate-900 hover:bg-slate-800 border border-slate-500 font-normal text-xl'>Contacts</button>
                         </div>
                         )}
                 </div>

@@ -12,7 +12,7 @@ const Services = () => {
                     data.map(petService =>
                         <div
                             key={petService.serviceId}
-                            className="bg-slate-800 p-4 rounded-md cursor-pointer hover:shadow-slate-500 shadow-md border border-slate-600"
+                            className="bg-slate-900 p-4 rounded-md cursor-pointer hover:shadow-slate-500 shadow-md border border-slate-700"
                         >
 
                             <img src={petService.image} className='rounded-md md:h-50 h-45 w-auto' alt="" />
@@ -22,7 +22,7 @@ const Services = () => {
                                 <p className='flex items-center gap-2'><FaStar /><span>{petService.rating}</span></p>
                             </div>
 
-                            <Link to={`/auth/services/servicedetails/${petService.serviceId}`} className='btn w-full bg-lime-500 hover:bg-lime-400'>See Details</Link>
+                            <Link to={`/auth/services/servicedetails/${petService.serviceId}`} className='btn w-full bg-slate-900 hover:bg-slate-800 border border-slate-500 font-normal text-xl'>See Details</Link>
                         </div>
                     )}
             </div>
