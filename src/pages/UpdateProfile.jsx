@@ -1,7 +1,7 @@
 import { use, useState } from 'react';
-import { AuthContext } from '../provider/AuthProvider';
 import { useNavigate } from 'react-router';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { AuthContext } from '../context/AuthContext';
 
 const UpdateProfile = () => {
     const { user, updateUser, setUser } = use(AuthContext);
