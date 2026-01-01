@@ -2,8 +2,8 @@ import { useSpring, animated } from "@react-spring/web";
 import { useState } from 'react';
 
 import { use } from 'react';
-import { AuthContext } from '../provider/AuthProvider';
 import { Link } from 'react-router';
+import { AuthContext } from "../context/AuthContext";
 
 const MyProfile = () => {
     const { user } = use(AuthContext);
