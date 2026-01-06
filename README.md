@@ -17,8 +17,11 @@ This project demonstrates **real-world React development**, including authentica
 ![Home Page](https://i.ibb.co.com/M3mDrTy/home.png)
 ![Service](https://i.ibb.co.com/vx7sWmDK/service.png)
 ![Service Details](https://i.ibb.co.com/20x1nqzq/service-details.png)
+![Expert Tips](https://i.ibb.co.com/9m5F6qmr/tips.png)
+![Meet Our Expert](https://i.ibb.co.com/60Cvn9hY/expert.png)
 ![Login Page](https://i.ibb.co.com/QvsRdkh3/login.png)
 ![Profile Page](https://i.ibb.co.com/JFsHfPtQ/profile.png)
+
 
 ---
 
